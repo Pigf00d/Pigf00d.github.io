@@ -28,7 +28,7 @@ export default function Home() {
         <p className={styles.tagline}>Software Engineer</p>
         <div className={styles.heroLinks}>
           <a
-            href="/resume.pdf"
+            href="/PersonalSite/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.connectLink}
