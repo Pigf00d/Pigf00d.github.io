@@ -38,25 +38,6 @@
   animation: fadeUp 0.8s ease 0.4s forwards;
 }
 
-.scrollIndicator {
-  position: absolute;
-  bottom: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.6s forwards;
-}
-
-.scrollLine {
-  width: 1px;
-  height: 40px;
-  background: var(--forest);
-  opacity: 0.3;
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
 /* ── Navigation ── */
 .nav {
   position: fixed;
@@ -87,6 +68,7 @@
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin-left: auto;
 }
 
 .navLink {
@@ -99,6 +81,59 @@
 
 .navLink:hover {
   color: var(--forest);
+}
+
+/* ── Tech Carousel ── */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.carouselIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carouselItem:hover .carouselIcon {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.carouselLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── Sections (shared) ── */
@@ -138,7 +173,7 @@
   border-radius: 12px;
   padding: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: default;
+  cursor: pointer;
 }
 
 .projectCard:hover {
@@ -242,13 +277,10 @@
   box-shadow: 0 6px 20px rgba(45, 90, 61, 0.2);
 }
 
-.connectArrow {
-  transition: transform 0.3s ease;
-  font-size: 0.85rem;
-}
-
-.connectLink:hover .connectArrow {
-  transform: translateX(3px);
+.connectIcon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
 /* ── Footer ── */
@@ -281,11 +313,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.2; transform: scaleY(1); }
-  50% { opacity: 0.5; transform: scaleY(1.2); }
 }
 
 /* ── Responsive ── */
