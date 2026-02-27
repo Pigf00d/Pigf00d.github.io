@@ -26,14 +26,6 @@ export default function Home() {
         <p className={styles.tagline}>Software Engineer</p>
         <div className={styles.heroLinks}>
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.connectLink}
-          >
-            Resume
-          </a>
-          <a
             href="https://linkedin.com/in/hqburke"
             target="_blank"
             rel="noopener noreferrer"
